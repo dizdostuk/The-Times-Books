@@ -1,3 +1,8 @@
+a:hover {
+  text-decoration: none;
+}
+
+/******************* Navbar *****************/
 .navbar-brand {
   font-family: 'Times New Roman', 'serif';
   font-size: 22px;
@@ -26,6 +31,16 @@ img.avatar {
   width: 50px !important;
   height: 50px !important;
   border-radius: 50% !important;
+}
+
+.cartCount {
+  padding: 0px 5px;
+  background-color: rgb(216, 112, 15);
+  position: relative;
+  border-radius: 50%;
+  font-size: 13px;
+  color: #fff;
+  left: 3px;
 }
 
 /**************** Hero ***********************/
