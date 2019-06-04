@@ -11,7 +11,7 @@ function Card({title, description, author, bookImg}) {
           <p className="card-description">{description}</p>
         </div>
         <div className="book-buy">
-          <a href="#" className="btn btn-success">Buy</a>
+          <a href="#" className="btn btn-success">Add to cart</a>
         </div>
       </div>
     </div>

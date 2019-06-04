@@ -8,7 +8,6 @@ import "./App.css";
 function App() {
   
   const[books, setBooks] = useState([]);
-  let newArr = [];
   
   useEffect(() => {
     fetch(config.url+'?api-key='+config.apiKey)
