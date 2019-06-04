@@ -1,6 +1,13 @@
 import React from 'react';
 
-function Card({title, description, author, bookImg}) {
+function Card({
+  title, 
+  description, 
+  author, 
+  bookImg,
+  isAdded,
+  setIsAdded
+}) {
   return (
     <div className="card">
       <img src={bookImg} className="card-img-top" alt="Game of thrones" />
@@ -11,7 +18,8 @@ function Card({title, description, author, bookImg}) {
           <p className="card-description">{description}</p>
         </div>
         <div className="book-buy">
-          <a href="#" className="btn btn-success">Add to cart</a>
+          {isAdded === false ? (<a href="#" onClick={setIsAdded(true)} className="btn btn-success">Buy</a>): 
+          (<a href="#" className="btn btn-info">Go to cart</a>)}
         </div>
       </div>
     </div>

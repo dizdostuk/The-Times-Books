@@ -7,7 +7,9 @@ import "./App.css";
 
 function App() {
   
-  const[books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [booksIsAdded, setBookIsAdded] = useState(false);
   
   useEffect(() => {
     fetch(config.url+'?api-key='+config.apiKey)
@@ -17,8 +19,6 @@ function App() {
       })
       .catch(err => console.log(err));
     },[]);
-    
-    console.log(books)
 
   return (
     <div className="wrapper">
@@ -29,7 +29,11 @@ function App() {
           <div className="user_nav">
             <div className="user_nav_grid">
               <div className="user_nav-likes"><a href="#"><i className="fa fa-heart" /></a></div>
-              <div className="user_nav-bag"><a href="#"><i className="fa fa-shopping-cart" /></a></div>
+              <div className="user_nav-bag">
+                <a href="#">
+                  <i className="fa fa-shopping-cart" />
+                  <span className="cartCount">{cartCount}</span>
+                </a></div>
               <div className="user_nav-avatar"><img className="avatar" src="https://cdn.pixabay.com/photo/2016/07/10/21/47/cat-1508613__340.jpg" alt=""/></div>
               <div className="user_nav-user-name">User Name</div>
             </div>
@@ -61,7 +65,9 @@ function App() {
                 title={item.title}
                 description={item.description}
                 bookImg={item.book_image}
-                author={item.contributor} />
+                author={item.contributor}
+                isAdded={booksIsAdded}
+                setIsAdded={setBookIsAdded} />
             }) : null}
           </div>
         </div>
