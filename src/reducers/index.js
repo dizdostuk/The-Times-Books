@@ -8,6 +8,7 @@ import {
 const initialState = {
   books: [],
   user: {},
+  itemsInCart: [],
   error: null,
   loading: false
 };
@@ -35,6 +36,18 @@ const rootReducer = (state = initialState, action) => {
         loading: false,
         error: action.error
       }
+    case ADD_TO_CART:
+      return {
+        ...state,
+        itemsInCart: [
+          ...state.itemsInCart,
+          action.book
+        ],
+        loading: false,
+        error: null
+      }
+    default:
+      return state;
   }
 };
 

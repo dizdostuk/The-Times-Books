@@ -1,4 +1,9 @@
-import { FETCH_BOOKS_REQUESTED, FETCH_BOOKS_SUCCESS, FETCH_BOOKS_FAILED, ADD_TO_CART } from "../action-creators";
+import { 
+  FETCH_BOOKS_REQUESTED, 
+  FETCH_BOOKS_SUCCESS, 
+  FETCH_BOOKS_FAILED,
+  ADD_TO_CART
+} from "../action-creators";
 
 const booksRequested = () => {
   return {
