@@ -111,7 +111,7 @@ img.avatar {
   text-align: left;
   color: #000;
 }
-.card-body a.btn {
+.card-body .btn {
   padding: 5px 10px;
   width: 100%;
 }

@@ -8,6 +8,7 @@ function Card({
   isAdded,
   setIsAdded
 }) {
+  console.log(isAdded)
   return (
     <div className="card">
       <img src={bookImg} className="card-img-top" alt="Game of thrones" />
@@ -18,8 +19,10 @@ function Card({
           <p className="card-description">{description}</p>
         </div>
         <div className="book-buy">
-          {isAdded === false ? (<a href="#" onClick={setIsAdded(true)} className="btn btn-success">Buy</a>): 
-          (<a href="#" className="btn btn-info">Go to cart</a>)}
+          {isAdded ?
+            (<button className="btn btn-info">Go to cart</button>)
+            :
+            (<button className="btn btn-success" onClick={setIsAdded(false)}>Buy</button>) }
         </div>
       </div>
     </div>
