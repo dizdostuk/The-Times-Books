@@ -2,12 +2,19 @@ import {
   FETCH_BOOKS_REQUESTED,
   FETCH_BOOKS_SUCCESS,
   FETCH_BOOKS_FAILED,
-  ADD_TO_CART
+  ADD_TO_CART,
+  REGISTER_USER
 } from "../action-creators";
 
 const initialState = {
   books: [],
-  user: {},
+  user: {
+    userName: undefined,
+    password: undefined,
+    firstName: undefined,
+    lastName: undefined,
+  },
+  isEntered: false,
   itemsInCart: [],
   error: null,
   loading: false
@@ -45,6 +52,12 @@ const rootReducer = (state = initialState, action) => {
         ],
         loading: false,
         error: null
+      }
+    case REGISTER_USER:
+      return {
+        ...state,
+        user: action.newUser,
+        isEntered: true
       }
     default:
       return state;

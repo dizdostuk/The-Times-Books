@@ -12,6 +12,8 @@ import {
 import "./App.css";
 import MainPage from './components/MainPage';
 import BasketCart from './components/BasketCart';
+import Login from "./components/Login";
+import Registration from "./components/Registration";
 
 
 
@@ -36,8 +38,11 @@ function App({
       <Navbar />
 
       <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Registration} />
         <Route exact path="/" component={MainPage} />
         <Route path="/cart" component={BasketCart} />
+
       </Switch>
       
     </div>

@@ -2,7 +2,8 @@ import {
   FETCH_BOOKS_REQUESTED, 
   FETCH_BOOKS_SUCCESS, 
   FETCH_BOOKS_FAILED,
-  ADD_TO_CART
+  ADD_TO_CART,
+  REGISTER_USER
 } from "../action-creators";
 
 const booksRequested = () => {
@@ -32,9 +33,17 @@ const addToCart = (book) => {
   }
 };
 
+const registerUser = (newUser) => {
+  return {
+    type: REGISTER_USER,
+    newUser: newUser
+  }
+};
+
 export {
   booksRequested,
   booksLoaded,
   booksError,
-  addToCart
+  addToCart,
+  registerUser
 };

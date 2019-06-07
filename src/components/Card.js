@@ -13,6 +13,7 @@ function Card({ book, addToCart }) {
   return (
     <div className="card">
       <img src={book.book_image} className="card-img-top" alt="Game of thrones" />
+      <span className="like_btn"><i className="fa fa-heart"></i></span>
       <div className="card-body">
         <div className="book-info">
           <h5 className="card-title">{book.title}</h5>

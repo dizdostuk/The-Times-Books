@@ -23,9 +23,12 @@ const BasketCart = ({ itemsInCart }) => {
                   <p>Author: {book.author}</p>
                   <p>Description: {book.description}</p>
                 </div>
+                <input type="number" defaultValue="1"/>
               </div>
             }) : null}
           </div>
+          {itemsInCart.length ? <button className="btn btn-success btn_in_cart">Buy</button> : null}
+
         </div>
       </div>
 

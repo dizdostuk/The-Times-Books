@@ -5,7 +5,6 @@ import { addToCart } from '../actions';
 
 
 const MainPage = ({ books, addToCart }) => {
-
   const handleAddToCart = (obj) => {
     addToCart(obj)
   };
