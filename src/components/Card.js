@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart, addToLiked } from '../actions';
 
 
-function Card({ book, addToCart }) {
+function Card({ book, addToCart, addToLiked, likedBooks }) {
   const [isAdded, setIsAdded] = useState(false);
   
   const handleAddToCart = (item) => {
     setIsAdded(true);
     addToCart(item);
+  };
+
+  const handleAddToLiked = (item) => {
+    let likedBooksCount = 0;
+    likedBooks.map(likedBook => {
+      if(likedBook.title == item.title) {
+        likedBooksCount++;
+      }
+    });
+    if(likedBooksCount === 0)
+      addToLiked(item);
   }
-  
+
   return (
     <div className="card">
       <img src={book.book_image} className="card-img-top" alt="Game of thrones" />
-      <span className="like_btn"><i className="fa fa-heart"></i></span>
+      <span className="like_btn"><i className="fa fa-heart" onClick={() => handleAddToLiked(book)}></i></span>
       <div className="card-body">
         <div className="book-info">
           <h5 className="card-title">{book.title}</h5>
@@ -29,6 +42,21 @@ function Card({ book, addToCart }) {
       </div>
     </div>
   );
+};
+
+const mapStateToProps = ({ likedBooks }) => {
+  return { likedBooks }
 }
 
-export default Card;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (book) => dispatch(addToCart(book)),
+    addToLiked: (book) => dispatch(addToLiked(book))
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Card);

@@ -3,4 +3,7 @@ export const FETCH_BOOKS_SUCCESS = "FETCH_BOOKS_SUCCESS";
 export const FETCH_BOOKS_FAILED = "FETCH_BOOKS_FAILED";
 
 export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_TO_LIKED = "ADD_TO_LIKED";
+
 export const REGISTER_USER = "REGISTER_USER";
+export const LOGOUT_USER = "LOGOUT_USER";

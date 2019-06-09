@@ -25,12 +25,15 @@ function App({
   
   useEffect(() => {
     requestToApi();
-    fetch(config.url+'?api-key='+config.apiKey)
-      .then(resps => resps.json())
-      .then(json => {
-        return loadToStore(json.results.books);
-      })
-      .catch(err => loadError(err));
+    config.urls.map(url => {
+      fetch(url+'?api-key='+config.apiKey)
+        .then(resps => resps.json())
+        .then(json => {
+          return loadToStore(json.results.books);
+        })
+        .catch(err => loadError(err));
+
+    })
     },[]);
 
   return (

@@ -1,19 +1,17 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-
-const BasketCart = ({ itemsInCart }) => {
+function LikedPage({ likedBooks }) {
   return (
     <div className="wrapper">
-
       <div className="hero">
-        <h1>Cart page</h1>
+        <h1>Liked page</h1>
       </div>
 
       <div className="content">
         <div className="container">
           <div className="content_cart_books">
-            {itemsInCart ? itemsInCart.map(book => {
+            {likedBooks ? likedBooks.map(book => {
               return <div className="cart_book_item">
                 <div className="cart_book_item_img">
                   <img src={book.book_image} alt={book.title}/>
@@ -27,20 +25,16 @@ const BasketCart = ({ itemsInCart }) => {
               </div>
             }) : null}
           </div>
-          {itemsInCart.length ? <button className="btn btn-success btn_in_cart">Buy</button> : null}
-
         </div>
       </div>
-
     </div>
-  )
+  );
 };
 
-const mapStateToProps = ({ itemsInCart }) => {
-  return { itemsInCart };
-};
- 
+const mapStateToProps = ({ likedBooks }) => {
+  return { likedBooks };
+}
+
 export default connect(
-  mapStateToProps,
-  null
-)(BasketCart);
+  mapStateToProps
+)(LikedPage);

@@ -3,7 +3,9 @@ import {
   FETCH_BOOKS_SUCCESS, 
   FETCH_BOOKS_FAILED,
   ADD_TO_CART,
-  REGISTER_USER
+  ADD_TO_LIKED,
+  REGISTER_USER,
+  LOGOUT_USER
 } from "../action-creators";
 
 const booksRequested = () => {
@@ -33,10 +35,25 @@ const addToCart = (book) => {
   }
 };
 
+const addToLiked = (book) => {
+  return {
+    type: ADD_TO_LIKED,
+    book: book
+  }
+};
+
 const registerUser = (newUser) => {
   return {
     type: REGISTER_USER,
     newUser: newUser
+  }
+};
+
+const logOut = () => {
+  return {
+    type: LOGOUT_USER,
+    user: {},
+    isEntered: false
   }
 };
 
@@ -45,5 +62,7 @@ export {
   booksLoaded,
   booksError,
   addToCart,
-  registerUser
+  addToLiked,
+  registerUser,
+  logOut
 };

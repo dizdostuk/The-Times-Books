@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Login from "./Login";
 import { connect } from "react-redux";
 import { registerUser } from "../actions";
 
-function Registration({ registerAccount }) {
+function Registration(props) {
+  const { registerAccount } = props;
   const [userObj, setUserObj] = useState({
     userName: "",
     password: "",
@@ -85,9 +86,10 @@ function Registration({ registerAccount }) {
             onClick={(e) => {
               e.preventDefault();
               registerAccount(userObj);
+              props.history.push("/")
             }}
             type="submit"
-            className="btn btn-primary">Login</button>
+            className="btn btn-primary">Register</button>
         </form>
       </div>
     </div>
